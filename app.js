@@ -10,6 +10,7 @@ function getJokesFromAPI(e) {
   
   console.log(endpoint);
   
+  //without arrow functions
   // fetch(endpoint) 
   //   .then(function(res) {
   //     return res.json();
@@ -19,6 +20,8 @@ function getJokesFromAPI(e) {
   // })
   // e.preventDefault();
 
+
+  //with arrow functions
   fetch(endpoint) 
     .then(res =>res.json())
     .then(data => console.log(data))
