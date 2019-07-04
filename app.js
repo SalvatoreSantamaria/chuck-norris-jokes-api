@@ -7,9 +7,9 @@ function getJokesFromAPI(e) {
   const numberOfJokes = document.getElementById('numberOfJokes');
   //console.log(numberOfJokes.value);
   const endpoint = `https://api.icndb.com/jokes/random/${numberOfJokes.value}`
-  
   console.log(endpoint);
-  
+  let output = '';
+
   //without arrow functions
   // fetch(endpoint) 
   //   .then(function(res) {
@@ -19,13 +19,16 @@ function getJokesFromAPI(e) {
   //     console.log(data);
   // })
   // e.preventDefault();
-  let output = '';
+  
 
   //with arrow functions
   fetch(endpoint)
     .then(res => res.json())
-    //.then(data => console.log(data))
-     .then(function(data) {
+    //.then(data => console.log(data)) // to simply console.log
+
+
+    //.then(function(data) { //without arrow function
+     .then(data => { //refactored with arrow function
        if (data.type === 'success') {
          data.value.forEach(function(param){
            output += `<li>${param.joke}</li>`
